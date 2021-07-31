@@ -1,0 +1,25 @@
+*{
+  box-sizing: content-box;
+}
+fieldset{
+  border: solid .14rem;
+  border-radius: .6rem;
+}
+.percentage__img {
+  max-width: 30px;
+}
+.list__img {
+  max-width: 30px;
+}
+.naira__sign {
+  max-width: 50px;
+  max-height: 12.5px;
+}
+.amountCell{
+   padding-block: 1.5rem;
+}
+.amountInput, .salaryInput, .monetaryInput{
+  padding: .2rem;
+  border: solid .1rem blue;
+  border-radius: .2rem;
+}

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  </head>
+  <body>
+    <h1 class="header">
+      Expenses
+      <img
+        class="percentage__img"
+        src="./pageAssets/percentage.svg"
+        alt="nairaSign"
+      />
+      calculator
+    </h1>
+    <form action="" method="GET">
+      <fieldset>
+        <legend>Monthly income</legend>
+        <label for="salary"
+          >Salary :
+          <img
+            class="naira__sign"
+            src="pageAssets/nairaSign.svg"
+            alt="nairaSign"
+          />
+          <input
+            class="salaryClass salaryInput"
+            type="number"
+            name="salary"
+            id="salary"
+            placeholder="0.000"
+            required
+            value=""
+          />
+          <!-- <button class="salaryBtnUpdate">Update</button> -->
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>Amount allocated</legend>
+        <div class="amountGrid">
+          <div class="amountCell">
+            <img
+              class="list__img"
+              src="./pageAssets/housing.svg"
+              alt="houseIcon"
+            />
+            <label for="housing"
+              >Housing :
+              <img
+                class="naira__sign"
+                src="pageAssets/nairaSign.svg"
+                alt="nairaSign"
+              />
+              <input
+                class="housingClass amountInput"
+                id="housing"
+                name="housing"
+                placeholder="0.000"
+                type="number"
+                value=""
+                required
+              />
+            </label>
+          </div>
+          <div class="amountCell">
+            <img
+              class="list__img"
+              src="./pageAssets/transportation.svg"
+              alt="transportIcon"
+            />
+            <label for="transport"
+              >Transit :
+              <img
+                class="naira__sign"
+                src="pageAssets/nairaSign.svg"
+                alt="nairaSign" />
+              <input
+                class="transportClass amountInput"
+                id="transport"
+                name="transportation"
+                type="number"
+                placeholder="0.000"
+                value=""
+                required
+                disabled
+            /></label>
+          </div>
+          <div class="amountCell">
+            <img
+              class="list__img"
+              src="./pageAssets/savings.svg"
+              alt="savingIcon"
+            />
+            <label for="savings"
+              >Savings :
+              <img
+                class="naira__sign"
+                src="pageAssets/nairaSign.svg"
+                alt="nairaSign" />
+              <input
+                class="savingsClass amountInput"
+                id="savings"
+                name="savings"
+                type="number"
+                placeholder="0.000"
+                value=""
+                required
+                disabled
+            /></label>
+          </div>
+          <div class="amountCell">
+            <img
+              class="list__img"
+              src="./pageAssets/clothing.svg"
+              alt="clothingIcon"
+            />
+            <label for="clothing"
+              >Clothing :
+              <img
+                class="naira__sign"
+                src="pageAssets/nairaSign.svg"
+                alt="nairaSign" />
+              <input
+                class="clothingClass amountInput"
+                id="clothing"
+                name="clothing"
+                type="number"
+                value=""
+                placeholder="0.000"
+                required
+                disabled
+            /></label>
+          </div>
+          <div class="amountCell">
+            <img
+              class="list__img"
+              src="./pageAssets/insurance.svg"
+              alt="insureIcon"
+            />
+            <label for="insurance"
+              >Insurance :
+              <img
+                class="naira__sign"
+                src="pageAssets/nairaSign.svg"
+                alt="nairaSign" />
+              <input
+                class="insuranceClass amountInput"
+                id="insurance"
+                name="insurance"
+                type="number"
+                value=""
+                placeholder="0.000"
+                required
+                disabled
+            /></label>
+          </div>
+          <div class="amountCell">
+            <img
+              class="list__img"
+              src="./pageAssets/retirement.svg"
+              alt="retireIcon"
+            />
+            <label for="retirement"
+              >Retirement :
+              <img
+                class="naira__sign"
+                src="pageAssets/nairaSign.svg"
+                alt="nairaSign" />
+              <input
+                class="retirementClass amountInput"
+                id="retirement"
+                name="retirement"
+                type="number"
+                value=""
+                placeholder="0.000"
+                required
+                disabled
+            /></label>
+          </div>
+        </div>
+      </fieldset>
+
+      <canvas id="myChart" style="width: 100%; max-width: 600px"></canvas>
+
+      <fieldset class="monetaryFieldClass" disabled>
+        <legend>Monetary goal</legend>
+        <div class="monetaryGrid">
+          <div class="monetaryCell">
+            <label for="monetaryGoal"
+              ><input
+                class="monetaryClass monetaryInput"
+                id="monetaryGoal"
+                type="number"
+                name="monetaryGoal"
+                value=""
+                placeholder="0.000"
+                required
+            /></label>
+          </div>
+          <div class="monetaryCell">
+            <button class="goalBtnUpdate" type="button">
+              Get number of months
+            </button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+    <section>
+      <div class="monthNumber"></div>
+      <div class="monetaryGoalIncrement"></div>
+    </section>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
