@@ -3,16 +3,17 @@
   box-sizing: content-box;
 }
 body{
+  color: #121212;
   font-family: 'Lato', sans-serif;
-  background-image: url("./images/bg_Img1.jpg");
+  background-image: url("./images/bg_Img.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(3.2px);
   -webkit-backdrop-filter: blur(9px);
 }
 fieldset{
-  border: solid .14rem;
+  border: solid #728ca3 .14rem;
   border-radius: .6rem;
 }
 .formContent:nth-of-type(1){
@@ -35,13 +36,79 @@ legend{
   max-height: 12.5px;
 }
 label{
-  margin-inline-start: .3rem;
+  /* margin-inline-start: .5rem; */
+
+}
+/* .amountGrid{
+  background-color: orangered;
+  
+} */
+@media screen and (min-width:420px) {
+  .amountGrid{
+    max-width: 85%;
+    margin-inline: auto;
+  }
+}
+@media screen and (min-width:600px) {
+    .amountGrid{
+      max-width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
 }
 .amountCell{
    padding-block: 1.5rem;
 }
 .amountInput, .salaryInput, .monetaryInput{
+  font-size: 1rem;
   padding: .2rem;
-  border: solid .1rem blue;
+  border: solid .1rem #0000ff51;
   border-radius: .2rem;
+}
+.monetaryGrid{
+  display: grid;
+  grid-template-columns: 3fr 5fr;
+}
+.monetaryCell{
+   
+}
+.monetaryCell .goalBtnUpadate{
+     display: none;
+}
+.monetaryFieldClass{
+  margin-block-start: 3.5rem;
+}
+
+@media screen and (min-width:840px){
+  .bodyContainer{
+    display: grid;
+    grid-template-areas:   "salary  amount"
+                           "canvas  amount "
+                           "canvas  amount "  
+                           "goal   amount";
+  }
+  .formContent:nth-of-type(1){
+    grid-area: salary;
+  }
+  .formContent:nth-of-type(2){
+    grid-area: amount;
+    margin-block-start: 0rem;
+  }
+  
+  .canvaClass{
+    grid-area: canvas;
+  }
+  .monetaryFieldClass{
+     grid-area: goal;
+  }
+  .amountGrid{
+    display: flex;
+    flex-direction: column;
+  }
+}
+.monthCard{
+  margin-top: 2rem;
+  border-radius: .3rem;
+   background-color:#f0ffff;
+   padding: 3rem;
 }
