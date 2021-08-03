@@ -55,6 +55,10 @@ label{
       display: grid;
       grid-template-columns: 1fr 1fr;
     }
+    .monthCard{
+        max-width: 70%;
+        margin-inline: auto;
+    }
 }
 .amountCell{
    padding-block: 1.5rem;
@@ -66,14 +70,14 @@ label{
   border-radius: .2rem;
 }
 .monetaryGrid{
-  display: grid;
-  grid-template-columns: 3fr 5fr;
+   display: flex;
+
 }
-.monetaryCell{
-   
+.monetaryCell + *{
+  margin-left: 2rem;
 }
-.monetaryCell .goalBtnUpadate{
-     display: none;
+.goalBtnUpdate{
+     font-size: 1rem;
 }
 .monetaryFieldClass{
   margin-block-start: 3.5rem;
@@ -107,8 +111,18 @@ label{
   }
 }
 .monthCard{
+  background-image: url("./images/bg_Img1.jpg");
+  background-color:#f0ffff;
+  background-blend-mode: luminosity;
+  background-size: cover;
+  background-repeat: no-repeat;
   margin-top: 2rem;
   border-radius: .3rem;
-   background-color:#f0ffff;
-   padding: 3rem;
+  padding: 2.5rem;
+}
+@media screen and (min-width:780px) {
+  .monthCard{
+    max-width: 62%;
+    margin-inline: auto;
+}
 }
