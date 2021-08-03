@@ -76,8 +76,8 @@ const calcPercent = (expense, salary) => {
   const expenseName = expense.name;
   const newSalary = parseInt(salary.value);
   const newAmount = parseInt(expense.value);
-  if(newAmount < 0){
-      alert(`${expenseName.toUpperCase()} CAN'T TAKE A NEGATIVE VALUE`);
+  if (newAmount < 0) {
+    alert(`${expenseName.toUpperCase()} CAN'T TAKE A NEGATIVE VALUE`);
   }
   if (newAmount > newSalary) {
     alert(`${expenseName.toUpperCase()} EXPENSE IS GREATER THAN SALARY`);
@@ -106,8 +106,8 @@ if (modifiedExpenseArr.length === 0) {
 // +++Function which does the percentage calculation+++
 const loadGraph = () => {
   modifiedExpenseArr = expensePercentArr.map((expense) => expense.value);
-  var percentOfExpenseArr = modifiedExpenseArr.map(
-    (value) => (percentValue = (value * 100) / salary.value)
+  var percentOfExpenseArr = modifiedExpenseArr.map((value) =>
+    (percentValue = (value * 100) / salary.value).toFixed(2)
   );
 
   // +++PieChart dependency+++
@@ -149,5 +149,4 @@ function calcGoalMonths() {
     displayMonths.innerHTML = parseInt(goalMonths);
     monetaryValueIncrement.innerHTML = incrementConversion;
   }
-  
 }
