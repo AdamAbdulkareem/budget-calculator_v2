@@ -141,12 +141,21 @@ function calcGoalMonths() {
   if (newMonetaryValue < newSavingsValue) {
     return alert("Monetary goal less than savings");
   } else if (Number.isInteger(goalMonths)) {
-    return (displayMonths.innerHTML = goalMonths);
+     displayMonths.innerHTML = goalMonths;
+    monetaryValueIncrement.innerText = "0.00";
+     return;
+  
   } else if (Number.isInteger(goalMonths) == false) {
     var incrementConversion = Math.ceil(
       (moneyIncrement = (goalMonths - parseInt(goalMonths)) * newSavingsValue)
     );
     displayMonths.innerHTML = parseInt(goalMonths);
     monetaryValueIncrement.innerHTML = incrementConversion;
+    return;
+  }
+  else if(newSavingsValue == 0) {
+    displayMonths.innerHTML = "0.00";
+    monetaryValueIncrement.innerText = "0.00";
+    return;
   }
 }
