@@ -135,25 +135,27 @@ const loadGraph = () => {
 // Monetary goal function (numbers of month) begins
 getMonthBtn.addEventListener("click", () => calcGoalMonths());
 function calcGoalMonths() {
+//  +++the below function test if number is float+++
+  function isFloat(x) { return !!(x % 1); }
+// +++   +++
   const newMonetaryValue = parseInt(monetary.value);
   const newSavingsValue = parseInt(savings.value);
   goalMonths = newMonetaryValue / newSavingsValue;
   if (newMonetaryValue < newSavingsValue) {
     return alert("Monetary goal less than savings");
   } else if (Number.isInteger(goalMonths)) {
-     displayMonths.innerHTML = goalMonths;
+    displayMonths.innerHTML = goalMonths;
     monetaryValueIncrement.innerText = "0.00";
-     return;
-  
-  } else if (Number.isInteger(goalMonths) == false) {
+    return;
+  } else if (isFloat(goalMonths) == true) {
     var incrementConversion = Math.ceil(
       (moneyIncrement = (goalMonths - parseInt(goalMonths)) * newSavingsValue)
     );
     displayMonths.innerHTML = parseInt(goalMonths);
     monetaryValueIncrement.innerHTML = incrementConversion;
     return;
-  }
-  else if(newSavingsValue == 0) {
+  } else {
+    console.log(savings.value);
     displayMonths.innerHTML = "0.00";
     monetaryValueIncrement.innerText = "0.00";
     return;
