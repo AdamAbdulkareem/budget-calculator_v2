@@ -1,1 +1,1 @@
-# https://adamabdulkareem.github.io/expenseCalculator/
+# https://adamabdulkareem.github.io/expense-calculator/
