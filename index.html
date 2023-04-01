@@ -1,247 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-  </head>
-  <body>
-    <h1 class="header">
-      Expenses
-      <img
-        class="percentage__img"
-        src="./pageAssets/percentage.svg"
-        alt="nairaSign"
-      />
-      calculator
-    </h1>
 
-    <form action="" method="GET">
-      <div class="bodyContainer">
-        <fieldset class="formContent">
-          <legend>Monthly income</legend>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
 
-          <label for="salary"
-            >Salary :
-            <img
-              class="naira__sign"
-              src="pageAssets/nairaSign.svg"
-              alt="nairaSign"
-            />
-            <input
-              class="salaryClass salaryInput"
-              type="number"
-              name="salary"
-              id="salary"
-              placeholder="0.000"
-              required
-              value=""
-            
-            />
-            <!-- <button class="salaryBtnUpdate">Update</button> -->
-          </label>
-        </fieldset>
-        <fieldset class="formContent">
-          <legend>Amount allocated</legend>
-          <div class="amountGrid">
-            <div class="amountCell">
-              <img
-                class="list__img"
-                src="./pageAssets/housing.svg"
-                alt="houseIcon"
-              />
-              <label for="housing"
-                >Housing :
-                <img
-                  class="naira__sign"
-                  src="pageAssets/nairaSign.svg"
-                  alt="nairaSign"
-                />
-                <input
-                  class="housingClass amountInput"
-                  id="housing"
-                  name="housing"
-                  placeholder="0.000"
-                  type="number"
-                  value=""
-                  required
-                  
-                />
-              </label>
-            </div>
-            <div class="amountCell">
-              <img
-                class="list__img"
-                src="./pageAssets/transportation.svg"
-                alt="transportIcon"
-              />
-              <label for="transport"
-                >Transit :
-                <img
-                  class="naira__sign"
-                  src="pageAssets/nairaSign.svg"
-                  alt="nairaSign" />
-                <input
-                  class="transportClass amountInput"
-                  id="transport"
-                  name="transportation"
-                  type="number"
-                  placeholder="0.000"
-                  value=""
-                  required
-                  disabled
-                  
-              /></label>
-            </div>
-            <div class="amountCell">
-              <img
-                class="list__img"
-                src="./pageAssets/savings.svg"
-                alt="savingIcon"
-              />
-              <label for="savings"
-                >Savings :
-                <img
-                  class="naira__sign"
-                  src="pageAssets/nairaSign.svg"
-                  alt="nairaSign" />
-                <input
-                  class="savingsClass amountInput"
-                  id="savings"
-                  name="savings"
-                  type="number"
-                  placeholder="0.000"
-                  value=""
-                  required
-                  disabled
-                  
-              /></label>
-            </div>
-            <div class="amountCell">
-              <img
-                class="list__img"
-                src="./pageAssets/clothing.svg"
-                alt="clothingIcon"
-              />
-              <label for="clothing"
-                >Clothing :
-                <img
-                  class="naira__sign"
-                  src="pageAssets/nairaSign.svg"
-                  alt="nairaSign" />
-                <input
-                  class="clothingClass amountInput"
-                  id="clothing"
-                  name="clothing"
-                  type="number"
-                  value=""
-                  placeholder="0.000"
-                  required
-                  disabled
-                  
-              /></label>
-            </div>
-            <div class="amountCell">
-              <img
-                class="list__img"
-                src="./pageAssets/insurance.svg"
-                alt="insureIcon"
-              />
-              <label for="insurance"
-                >Insurance :
-                <img
-                  class="naira__sign"
-                  src="pageAssets/nairaSign.svg"
-                  alt="nairaSign" />
-                <input
-                  class="insuranceClass amountInput"
-                  id="insurance"
-                  name="insurance"
-                  type="number"
-                  value=""
-                  placeholder="0.000"
-                  required
-                  disabled
-                  
-              /></label>
-            </div>
-            <div class="amountCell">
-              <img
-                class="list__img"
-                src="./pageAssets/retirement.svg"
-                alt="retireIcon"
-              />
-              <label for="retirement"
-                >Pension :
-                <img
-                  class="naira__sign"
-                  src="pageAssets/nairaSign.svg"
-                  alt="nairaSign" />
-                <input
-                  class="retirementClass amountInput"
-                  id="retirement"
-                  name="retirement"
-                  type="number"
-                  value=""
-                  placeholder="0.000"
-                  required
-                  disabled
-                  enterKeyHint = "done"
-              /></label>
-            </div>
+<body>
+  <h1 class="header">
+    Expenses
+    <img class="percentage__img" src="./pageAssets/percentage.svg" alt="naira-sign" />
+    calculator
+  </h1>
+
+  <form action="" method="GET">
+    <div class="body-container">
+      <fieldset class="form-content">
+        <legend>Income</legend>
+        <div class="income-grid">
+          <div class="income-cell">
+            <label for="monthly-salary">Monthly Salary :
+              <img class="naira__sign" src="pageAssets/naira-sign.svg" alt="naira-sign" />
+              <input class="monthly-salary-class income-input" type="number" name="monthly-salary" id="monthly-salary"
+                placeholder="0.000" required value="" />
+            </label>
           </div>
-        </fieldset>
+          <div class="income-cell">
+            <label for="monthly-other">Monthly Other:
+              <img class="naira__sign" src="pageAssets/naira-sign.svg" alt="naira-sign" />
+              <input class="monthly-other-class income-input" type="number" name="monthly-other" id="monthly-other"
+                placeholder="0.000" required value="" />
 
-        <canvas
-          id="myChart"
-          class="canvaClass"
-          style="width: 100%; max-width: 680px"
-        ></canvas>
-
-        <fieldset class="monetaryFieldClass">
-          <legend>Monetary goal</legend>
-          <p class="monetaryPg">Click the button below to calculate the number months it will take to achieve your goal base on your current savings</p>
-          <div class="monetaryGrid">
-            <div class="monetaryCell">
-              <label for="monetaryGoal"
-                ><input
-                  class="monetaryClass monetaryInput"
-                  id="monetaryGoal"
-                  type="number"
-                  name="monetaryGoal"
-                  value=""
-                  placeholder="0.000"
-                  required
-                  enterKeyHint = "done"
-              /></label>
-            </div>
-            <div class="monetaryCell">
-              <button class="goalBtnUpdate" type="button">
-                Display month
-              </button>
-            </div>
+            </label>
           </div>
-        </fieldset>
-      </div>
-    </form>
-    <section class="monthCard">
-      <h3>
-        Number of months:
-        <span class="monthNumber"></span>
-      </h3>
-      <h5>
-        Money Increment:
-        <img
-          class="naira__sign"
-          src="pageAssets/nairaSign.svg"
-          alt="nairaSign"
-        />
-        <span class="monetaryGoalIncrement"></span>
-      </h5>
-    </section>
-    <script type="text/javascript" src="script.js"></script>
-  </body>
+
+        </div>
+
+      </fieldset>
+
+      <!-- <div class="expenses-cell">
+        <img class="list__img" src="./pageAssets/housing.svg" alt="houseIcon" />
+        <label for="housing">Housing :
+          <img class="naira__sign" src="pageAssets/naira-sign.svg" alt="naira-sign" />
+          <input class="housing-class expenses-input" id="housing" name="housing" placeholder="0.000" type="number"
+            value="" required />
+        </label>
+      </div> -->
+
+
+      <fieldset class="form-content">
+        <legend>Monthly Expenses</legend>
+        <div class="expenses-grid">
+          <div class="expenses-cell">
+            <img class="list__img" src="" alt="food-icon" />
+            <label for="food">Food :
+              <img class="naira__sign" src="pageAssets/naira-sign.svg" alt="naira-sign" />
+              <input class="food-class expenses-input" id="food" name="food" placeholder="0.000" type="number" value=""
+                required />
+            </label>
+          </div>
+          <div class="expenses-cell">
+            <img class="list__img" src="" alt="clothing-icon" />
+            <label for="clothing">Clothing :
+              <img class="naira__sign" src="pageAssets/naira-sign.svg" alt="naira-sign" />
+              <input class="clothing-class expenses-input" id="clothing" name="clothing" placeholder="0.000"
+                type="number" value="" required />
+            </label>
+          </div>
+
+          <div class="expenses-cell">
+            <img class="list__img" src="" alt="shelter-icon" />
+            <label for="shelter">Shelter:
+              <img class="naira__sign" src="pageAssets/naira-sign.svg" alt="naira-sign" />
+              <input class="shelter-class expenses-input" id="shelter" name="shelter" placeholder="0.000" type="number"
+                value="" required />
+            </label>
+          </div>
+
+          <div class="expenses-cell">
+            <img class="list__img" src="" alt="household-icon" />
+            <label for="household">Household :
+              <img class="naira__sign" src="pageAssets/naira-sign.svg" alt="naira-sign" />
+              <input class="household-class expenses-input" id="household" name="household" placeholder="0.000"
+                type="number" value="" required />
+            </label>
+          </div>
+          <div class="expenses-cell">
+            <img class="list__img" src="" alt="transportation-icon" />
+            <label for="transportation">Transportation :
+              <img class="naira__sign" src="pageAssets/naira-sign.svg" alt="naira-sign" />
+              <input class="transportation-class expenses-input" id="transportation" name="transportation"
+                placeholder="0.000" type="number" value="" required />
+            </label>
+          </div>
+          <div class="expenses-cell">
+            <img class="list__img" src="" alt="health-icon" />
+            <label for="health">Health :
+              <img class="naira__sign" src="pageAssets/naira-sign.svg" alt="naira-sign" />
+              <input class="health-class expenses-input" id="health" name="health" placeholder="0.000" type="number"
+                value="" required />
+            </label>
+          </div>
+          <div class="expenses-cell">
+            <img class="list__img" src="" alt="health-icon" />
+            <label for="student-loan">Student Loans :
+              <img class="naira__sign" src="pageAssets/naira-sign.svg" alt="naira-sign" />
+              <input class="student-loan-class expenses-input" id="student-loan" name="student-loan" placeholder="0.000"
+                type="number" value="" required />
+            </label>
+          </div>
+          <div class="expenses-cell">
+            <img class="list__img" src="" alt="personal-icon" />
+            <label for="personal">Personal :
+              <img class="naira-sign" src="pageAssets/naira-sign.svg" alt="naira-sign" />
+              <input class="personal-class expenses-input" id="personal" name="personal" placeholder="0.000"
+                type="number" value="" required />
+            </label>
+          </div>
+
+          <div class="expenses-cell">
+            <img class="list__img" src="" alt="miscellaneous-icon" />
+            <label for="miscellaneous">Miscellaneous :
+              <img class="naira__sign" src="pageAssets/naira-sign.svg" alt="naira-sign" />
+              <input class="miscellaneous-class expenses-input" id="miscellaneous" name="miscellaneous"
+                placeholder="0.000" type="number" value="" required />
+            </label>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-content">
+        <legend>Monthly Savings</legend>
+        <div class="savings-grid">
+          <div class="savings-cell">
+            <img class="list__img" src="./pageAssets/housing.svg" alt="houseIcon" />
+            <label for="emergency-fund">Emergency Fund :
+              <img class="naira__sign" src="pageAssets/naira-sign.svg" alt="naira-sign" />
+              <input class="emergency-fund-class savings-input" id="emergency-fund" name="emergency-fund"
+                placeholder="0.000" type="number" value="" required />
+            </label>
+          </div>
+          <div class="savings-cell">
+            <img class="list__img" src="./pageAssets/transportation.svg" alt="transportIcon" />
+            <label for="investments">Investments :
+              <img class="naira__sign" src="pageAssets/naira-sign.svg" alt="naira-sign" />
+              <input class="investments-class savings-input" id="investments" name="investments" type="number"
+                placeholder="0.000" value="" required /></label>
+          </div>
+          <div class="savings-cell">
+            <img class="list__img" src="./pageAssets/transportation.svg" alt="transportIcon" />
+            <label for="retirement">Retirement :
+              <img class="naira__sign" src="pageAssets/naira-sign.svg" alt="naira-sign" />
+              <input class="retirement-class savings-input" id="retirement" name="retirement" type="number"
+                placeholder="0.000" value="" required /></label>
+          </div>
+        </div>
+      </fieldset>
+      <script type="text/javascript" src="script.js"></script>
+</body>
+
 </html>

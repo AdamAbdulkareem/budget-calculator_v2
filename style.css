@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
-*{
+
+* {
   box-sizing: content-box;
 }
-body{
+
+body {
   color: #121212;
   font-family: 'Lato', sans-serif;
   background-image: url("./images/bg_Img.jpg");
@@ -13,126 +15,95 @@ body{
   backdrop-filter: blur(3.2px);
   -webkit-backdrop-filter: blur(9px);
 }
-fieldset{
+
+fieldset {
   border: solid #728ca3 .14rem;
   border-radius: .6rem;
 }
-.formContent:nth-of-type(1){
+
+.form-content:nth-of-type(1) {
   padding-block: 1.5rem;
 }
-.formContent:nth-of-type(2){
-    margin-block-start: 3.5rem;
+
+.form-content:nth-of-type(2) {
+  margin-block-start: 3.5rem;
 }
-legend{
+
+legend {
   font-size: 1.5rem;
 }
+
 .percentage__img {
   max-width: 30px;
 }
+
 .list__img {
   max-width: 30px;
 }
+
 .naira__sign {
   max-width: 50px;
   max-height: 12.5px;
 }
-label{
+
+label {
   /* margin-inline-start: .5rem; */
 
 }
-/* .amountGrid{
+
+/* .expenses-grid{
   background-color: orangered;
   
 } */
-@media screen and (min-width:420px) {
-  .amountGrid{
+/* @media screen and (min-width:420px) {
+  .income-grid, .expenses-grid{
     max-width: 85%;
     margin-inline: auto;
   }
-}
-@media screen and (min-width:600px) {
-    .amountGrid{
+} */
+/* @media screen and (min-width:600px) {
+    .income-grid, .expenses-grid{
       max-width: 100%;
       display: grid;
       grid-template-columns: 1fr 1fr;
     }
-    .monthCard{
-        max-width: 70%;
-        margin-inline: auto;
-    }
+} */
+.income-cell,
+.expenses-cell,
+.savings-cell {
+  padding-block: 1.2rem;
 }
-.amountCell{
-   padding-block: 1.5rem;
-}
-.amountInput, .salaryInput, .monetaryInput{
+
+.income-input,
+.expenses-input,
+.savings-input {
   font-size: 1rem;
   padding: .2rem;
   border: solid .1rem #0000ff51;
   border-radius: .2rem;
 }
-.monetaryGrid{
-   display: flex;
 
-}
-.monetaryCell + *{
-  margin-left: 2rem;
-}
-.goalBtnUpdate{
-     font-size: .93rem;
-     color: #000000;
-}
-.goalBtnUpdate:hover{
-   box-shadow: 1.5px .8px 5px 1.8px #524949;
-}
-.monetaryFieldClass{
-  margin-block-start: 3.5rem;
-}
-.monetaryPg{
-   font-size: .9rem;
-   text-align: left;
-   font-family: 'Comfortaa', cursive;
-}
-
-@media screen and (min-width:840px){
-  .bodyContainer{
+/* @media screen and (min-width:840px){
+  .body-container{
     display: grid;
-    grid-template-areas:   "salary  amount"
-                           "canvas  amount "
-                           "canvas  amount "  
-                           "goal   amount";
+    grid-template-areas:   "salary  expenses"
+                           "canvas  expenses "
+                           "canvas  expenses "  
+                           "goal   expenses";
   }
-  .formContent:nth-of-type(1){
+  .form-content:nth-of-type(1){
     grid-area: salary;
   }
-  .formContent:nth-of-type(2){
-    grid-area: amount;
+  .form-content:nth-of-type(2){
+    grid-area: expenses;
     margin-block-start: 0rem;
   }
   
-  .canvaClass{
+  .canva-class{
     grid-area: canvas;
   }
-  .monetaryFieldClass{
-     grid-area: goal;
-  }
-  .amountGrid{
+  .income-grid, .expenses-grid{
     display: flex;
     flex-direction: column;
   }
-}
-.monthCard{
-  background-image: url("./images/bg_Img1.jpg");
-  background-color:#f0ffff;
-  background-blend-mode: luminosity;
-  background-size: cover;
-  background-repeat: no-repeat;
-  margin-top: 2rem;
-  border-radius: .3rem;
-  padding: 2.5rem;
-}
-@media screen and (min-width:780px) {
-  .monthCard{
-    max-width: 62%;
-    margin-inline: auto;
-}
-}
+} */

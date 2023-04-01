@@ -1,18 +1,18 @@
 // expenses name begins
 
-var housing = document.querySelector(".housingClass");
-var transport = document.querySelector(".transportClass");
-var savings = document.querySelector(".savingsClass");
-var clothing = document.querySelector(".clothingClass");
-var insurance = document.querySelector(".insuranceClass");
-var retirement = document.querySelector(".retirementClass");
-var monetaryFieldClass = document.querySelector(".monetaryFieldClass");
-var monetary = document.querySelector(".monetaryClass");
-var getMonthBtn = document.querySelector(".goalBtnUpdate");
-var salary = document.querySelector(".salaryClass");
-var canvas = document.querySelector("#myChart");
-var displayMonths = document.querySelector(".monthNumber");
-var monetaryValueIncrement = document.querySelector(".monetaryGoalIncrement");
+var housing = document.querySelector(".housing-class");
+var transport = document.querySelector(".transport-class");
+var savings = document.querySelector(".savings-class");
+var clothing = document.querySelector(".clothing-class");
+var insurance = document.querySelector(".insurance-class");
+var retirement = document.querySelector(".retirement-class");
+var monetaryFieldClass = document.querySelector(".monetary-field-class");
+var monetary = document.querySelector(".monetary-class");
+var getMonthBtn = document.querySelector(".goal-btn-update");
+var salary = document.querySelector(".salary-class");
+var canvas = document.querySelector("#my-chart");
+var displayMonths = document.querySelector(".month-number");
+var monetaryValueIncrement = document.querySelector(".monetary-goal-increment");
 // expenses name ends
 
 // +++Enforce user to input value in the presented order begins+++
@@ -112,7 +112,7 @@ const loadGraph = () => {
 
   // +++PieChart dependency+++
   canvas.style.display = "block";
-  return new Chart("myChart", {
+  return new Chart("my-chart", {
     type: "pie",
     data: {
       labels: expenseArr,
