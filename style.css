@@ -38,10 +38,10 @@ legend {
 }
 
 .list__img {
-  max-width: 30px;
+  max-width: 50px;
 }
 
-.naira__sign {
+.dollar__sign {
   max-width: 50px;
   max-height: 12.5px;
 }
