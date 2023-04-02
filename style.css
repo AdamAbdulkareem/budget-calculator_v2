@@ -12,8 +12,8 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  backdrop-filter: blur(3.2px);
-  -webkit-backdrop-filter: blur(9px);
+  /* backdrop-filter: blur(3.2px);
+  -webkit-backdrop-filter: blur(9px); */
 }
 
 fieldset {
@@ -38,7 +38,7 @@ legend {
 }
 
 .list__img {
-  max-width: 50px;
+  max-width: 35px;
 }
 
 .dollar__sign {
@@ -47,14 +47,9 @@ legend {
 }
 
 label {
-  /* margin-inline-start: .5rem; */
-
+  margin-inline-start: .5rem;
 }
 
-/* .expenses-grid{
-  background-color: orangered;
-  
-} */
 /* @media screen and (min-width:420px) {
   .income-grid, .expenses-grid{
     max-width: 85%;
@@ -72,6 +67,10 @@ label {
 .expenses-cell,
 .savings-cell {
   padding-block: 1.2rem;
+}
+.income-cell_1, .expenses-cell_1{
+  display: flex;
+  align-items: center;
 }
 
 .income-input,
@@ -107,3 +106,28 @@ label {
     flex-direction: column;
   }
 } */
+#chartdiv {
+  width: 100%;
+  height: 550px;
+}
+
+.budget-review-card {
+  display: flex;
+  flex-direction: row;
+  font-size: calc(15px + (24 - 16)*(100vw - 320px)/(1920 - 320));
+  font-weight: 700;
+  padding-inline: 1.8rem;
+  padding-block: 2.4rem;
+  background-color: antiquewhite;
+}
+
+.income-spent,
+.income-saved,
+.cash-balance {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.income-saved, .cash-balance{
+  margin-left: .7rem;
+}

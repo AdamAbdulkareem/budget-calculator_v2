@@ -1,19 +1,42 @@
-// Monthly Expenses Starts
-var monthly_salary = document.querySelector(".monthly-salary-class");
-var monthly_other = document.querySelector(".monthly-other-class");
-var food = document.querySelector(".food-class");
+// expenses name begins
+
+var housing = document.querySelector(".housing-class");
+var transport = document.querySelector(".transport-class");
+var savings = document.querySelector(".savings-class");
 var clothing = document.querySelector(".clothing-class");
-var shelter = document.querySelector(".shelter-class");
-var household = document.querySelector(".household-class");
-var transportation = document.querySelector(".transportation-class");
-var health = document.querySelector(".health-class");
-var student_loan = document.querySelector(".student-loan-class");
-var personal = document.querySelector(".personal-class");
-var miscellaneous = document.querySelector(".miscellaneous-class");
-var emergency_fund = document.querySelector(".emergency-fund-class");
-var investments = document.querySelector(".investments-class");
+var insurance = document.querySelector(".insurance-class");
 var retirement = document.querySelector(".retirement-class");
-// Monthly Expenses Ends
+var monetaryFieldClass = document.querySelector(".monetary-field-class");
+var monetary = document.querySelector(".monetary-class");
+var getMonthBtn = document.querySelector(".goal-btn-update");
+var salary = document.querySelector(".salary-class");
+var canvas = document.querySelector("#my-chart");
+var displayMonths = document.querySelector(".month-number");
+var monetaryValueIncrement = document.querySelector(".monetary-goal-increment");
+// expenses name ends
+
+// +++Enforce user to input value in the presented order begins+++
+var enforceInput = [
+  housing,
+  transport,
+  savings,
+  clothing,
+  insurance,
+  retirement,
+  monetaryFieldClass,
+];
+// +++counterFunction index+++
+var i = 0;
+// +++countFunction index+++
+var counterFunction = () => {
+  counterLabel: for (i; i < enforceInput.length; i++) {
+    if (typeof enforceInput[i].value == "string" && i < enforceInput.length) {
+      enforceInput[i + 1].disabled = false;
+      break counterLabel;
+    }
+  }
+  i++;
+};
 
 //percentage function begins
 
@@ -112,9 +135,9 @@ const loadGraph = () => {
 // Monetary goal function (numbers of month) begins
 getMonthBtn.addEventListener("click", () => calcGoalMonths());
 function calcGoalMonths() {
-  //  +++the below function test if number is float+++
+//  +++the below function test if number is float+++
   function isFloat(x) { return !!(x % 1); }
-  // +++   +++
+// +++   +++
   const newMonetaryValue = parseInt(monetary.value);
   const newSavingsValue = parseInt(savings.value);
   goalMonths = newMonetaryValue / newSavingsValue;
@@ -138,47 +161,3 @@ function calcGoalMonths() {
     return;
   }
 }
-
-
-
-
-var root = am5.Root.new("chartdiv");
-root.setThemes([
-  am5themes_Animated.new(root)
-]);
-
-var chart = root.container.children.push(am5percent.PieChart.new(root, {
-  startAngle: 180,
-  endAngle: 360,
-  layout: root.verticalLayout,
-  innerRadius: am5.percent(50)
-}));
-
-var series = chart.series.push(am5percent.PieSeries.new(root, {
-  startAngle: 180,
-  endAngle: 360,
-  valueField: "value",
-  categoryField: "category",
-  alignLabels: false
-}));
-
-series.states.create("hidden", {
-  startAngle: 180,
-  endAngle: 180
-});
-
-series.slices.template.setAll({
-  cornerRadius: 5
-});
-
-series.ticks.template.setAll({
-  forceHidden: true
-});
-
-series.data.setAll([
-  { value: 10, category: "Income Spent" },
-  { value: 9, category: "Income Saved" },
-  { value: 6, category: "Cash Balence" }
-]);
-
-series.appear(1000, 100);

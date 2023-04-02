@@ -7,7 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
   <title>Document</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+  <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+
+
 </head>
 
 <body>
@@ -24,17 +29,20 @@
         <div class="income-grid">
           <div class="income-cell">
             <label for="monthly-salary">Monthly Salary :
-              <img class="dollar__sign" src="pageAssets/dollar-sign.svg" alt="dollar-sign" />
-              <input class="monthly-salary-class income-input" type="number" name="monthly-salary" id="monthly-salary"
-                placeholder="0.000" required value="" />
+              <div class="income-cell_1">
+                <img class="dollar__sign" src="pageAssets/dollar-sign.svg" alt="dollar-sign" />
+                <input class="monthly-salary-class income-input" type="number" name="monthly-salary" id="monthly-salary"
+                  placeholder="0.000" required min="0" oninput="this.value = Math.abs(this.value)" />
+              </div>
             </label>
           </div>
           <div class="income-cell">
             <label for="monthly-other">Monthly Other:
-              <img class="dollar__sign" src="pageAssets/dollar-sign.svg" alt="dollar-sign" />
-              <input class="monthly-other-class income-input" type="number" name="monthly-other" id="monthly-other"
-                placeholder="0.000" required value="" />
-
+              <div class="income-cell_1">
+                <img class="dollar__sign" src="pageAssets/dollar-sign.svg" alt="dollar-sign" />
+                <input class="monthly-other-class income-input" type="number" name="monthly-other" id="monthly-other"
+                  placeholder="0.000" required min="0" oninput="this.value = Math.abs(this.value)" />
+              </div>
             </label>
           </div>
 
@@ -51,76 +59,97 @@
           <div class="expenses-cell">
             <img class="list__img" src="pageAssets/food-icon.svg" alt="food-icon" />
             <label for="food">Food :
+              <div class="expenses-cell_1">
               <img class="dollar__sign" src="pageAssets/dollar-sign.svg" alt="dollar-sign" />
-              <input class="food-class expenses-input" id="food" name="food" placeholder="0.000" type="number" value=""
-                required />
+              <input class="food-class expenses-input" id="food" name="food" placeholder="0.000" type="number" required
+                min="0" oninput="this.value = Math.abs(this.value)" />
+                </div>
             </label>
           </div>
           <div class="expenses-cell">
             <img class="list__img" src="pageAssets/clothing-icon.svg" alt="clothing-icon" />
             <label for="clothing">Clothing :
+              <div class="expenses-cell_1">
               <img class="dollar__sign" src="pageAssets/dollar-sign.svg" alt="dollar-sign" />
               <input class="clothing-class expenses-input" id="clothing" name="clothing" placeholder="0.000"
-                type="number" value="" required />
+                type="number" required min="0" oninput="this.value = Math.abs(this.value)" />
+                </div>
             </label>
           </div>
 
           <div class="expenses-cell">
             <img class="list__img" src="pageAssets/shelter-icon.svg" alt="shelter-icon" />
             <label for="shelter">Shelter:
+              <div class="expenses-cell_1">
               <img class="dollar__sign" src="pageAssets/dollar-sign.svg" alt="dollar-sign" />
               <input class="shelter-class expenses-input" id="shelter" name="shelter" placeholder="0.000" type="number"
-                value="" required />
+                required min="0" oninput="this.value = Math.abs(this.value)" />
+                </div>
             </label>
+
           </div>
 
           <div class="expenses-cell">
             <img class="list__img" src="pageAssets/household-icon.svg" alt="household-icon" />
             <label for="household">Household :
+              <div class="expenses-cell_1">
               <img class="dollar__sign" src="pageAssets/dollar-sign.svg" alt="dollar-sign" />
               <input class="household-class expenses-input" id="household" name="household" placeholder="0.000"
-                type="number" value="" required />
+                type="number" required min="0" oninput="this.value = Math.abs(this.value)" />
+                </div>
             </label>
           </div>
           <div class="expenses-cell">
             <img class="list__img" src="pageAssets/transportation-icon.svg" alt="transportation-icon" />
             <label for="transportation">Transportation :
+              <div class="expenses-cell_1">
               <img class="dollar__sign" src="pageAssets/dollar-sign.svg" alt="dollar-sign" />
               <input class="transportation-class expenses-input" id="transportation" name="transportation"
-                placeholder="0.000" type="number" value="" required />
+                placeholder="0.000" type="number" required min="0" oninput="this.value = Math.abs(this.value)" />
+                </div>
             </label>
+
           </div>
           <div class="expenses-cell">
             <img class="list__img" src="pageAssets/health-icon.svg" alt="health-icon" />
             <label for="health">Health :
+              <div class="expenses-cell_1">
               <img class="dollar__sign" src="pageAssets/dollar-sign.svg" alt="dollar-sign" />
               <input class="health-class expenses-input" id="health" name="health" placeholder="0.000" type="number"
-                value="" required />
+                required min="0" oninput="this.value = Math.abs(this.value)" />
+                </div>
             </label>
           </div>
           <div class="expenses-cell">
             <img class="list__img" src="pageAssets/student-loan-icon.svg" alt="student-loan-icon" />
-            <label for="student-loan">Student Loans :
+            <label for="student-loan">Student Loan :
+              <div class="expenses-cell_1">
               <img class="dollar__sign" src="pageAssets/dollar-sign.svg" alt="dollar-sign" />
               <input class="student-loan-class expenses-input" id="student-loan" name="student-loan" placeholder="0.000"
-                type="number" value="" required />
+                type="number" required min="0" oninput="this.value = Math.abs(this.value)" />
+                </div>
             </label>
           </div>
 
           <div class="expenses-cell">
             <img class="list__img" src="pageAssets/personal-icon.svg" alt="personal-icon" />
             <label for="">Personal :
+              <div class="expenses-cell_1">
               <img class="dollar__sign" src="pageAssets/dollar-sign.svg" alt="dollar-sign" />
-              <input class="" id="" name="" placeholder="" type="" value="" required />
+              <input class="personal-class expenses-input" id="personal" name="personal" placeholder="0.000"
+                type="number" required min="0" oninput="this.value = Math.abs(this.value)" />
+                </div>
             </label>
           </div>
 
           <div class="expenses-cell">
             <img class="list__img" src="pageAssets/miscellaneous-icon.svg" alt="miscellaneous-icon" />
             <label for="miscellaneous">Miscellaneous :
+              <div class="expenses-cell_1">
               <img class="dollar__sign" src="pageAssets/dollar-sign.svg" alt="dollar-sign" />
               <input class="miscellaneous-class expenses-input" id="miscellaneous" name="miscellaneous"
-                placeholder="0.000" type="number" value="" required />
+                placeholder="0.000" type="number" required min="0" oninput="this.value = Math.abs(this.value)" />
+                </div>
             </label>
           </div>
         </div>
@@ -134,7 +163,7 @@
             <label for="emergency-fund">Emergency Fund :
               <img class="dollar__sign" src="pageAssets/dollar-sign.svg" alt="dollar-sign" />
               <input class="emergency-fund-class savings-input" id="emergency-fund" name="emergency-fund"
-                placeholder="0.000" type="number" value="" required />
+                placeholder="0.000" type="number" required min="0" oninput="this.value = Math.abs(this.value)" />
             </label>
           </div>
           <div class="savings-cell">
@@ -142,18 +171,27 @@
             <label for="investments">Investments :
               <img class="dollar__sign" src="pageAssets/dollar-sign.svg" alt="dollar-sign" />
               <input class="investments-class savings-input" id="investments" name="investments" type="number"
-                placeholder="0.000" value="" required /></label>
+                placeholder="0.000" required min="0" oninput="this.value = Math.abs(this.value)" /></label>
           </div>
           <div class="savings-cell">
             <img class="list__img" src="pageAssets/retirement-icon.svg" alt="transportIcon" />
             <label for="retirement">Retirement :
               <img class="dollar__sign" src="pageAssets/dollar-sign.svg" alt="dollar-sign" />
               <input class="retirement-class savings-input" id="retirement" name="retirement" type="number"
-                placeholder="0.000" value="" required /></label>
+                placeholder="0.000" required min="0" oninput="this.value = Math.abs(this.value)" /></label>
           </div>
         </div>
       </fieldset>
-      <script type="text/javascript" src="script.js"></script>
+      <div id="chartdiv"></div>
+      <script src="script.js"></script>
+
+      <footer>
+        <div class="budget-review-card">
+          <div class="income-spent">Income Spent <span>$0.000</span></div>
+          <div class="income-saved">Income Saved <span>$0.000</span></div>
+          <div class="cash-balance">Cash Balance <span>$0.000</span></div>
+        </div>
+      </footer>
 </body>
 
 </html>
