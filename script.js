@@ -15,170 +15,102 @@ var investments = document.querySelector(".investments-class");
 var retirement = document.querySelector(".retirement-class");
 // Monthly Expenses Ends
 
-//percentage function begins
 
-// +++Labels used by pieChart+++
-var expenseArr = [
-  "Housing",
-  "Transport",
-  "Savings",
-  "Clothing",
-  "Insurance",
-  "Retirement",
-];
-// ++++backgroundColour use by pieChart++++
-var expenseColor = [
-  "#b91d47",
-  "#00aba9",
-  "#2b5797",
-  "#e8c3b9",
-  "#1e7145",
-  "#f11fff",
-];
-// +++triggers calcPercent function+++
-housing.addEventListener("change", () => calcPercent(housing, salary));
-transport.addEventListener("change", () => calcPercent(transport, salary));
-savings.addEventListener("change", () => calcPercent(savings, salary));
-clothing.addEventListener("change", () => calcPercent(clothing, salary));
-insurance.addEventListener("change", () => calcPercent(insurance, salary));
-retirement.addEventListener("mouseout", () => calcPercent(retirement, salary));
 
-// +++Array that takes objectLiterals containing expenseName and value+++
-var expensePercentArr = [];
-// +++Array that contain expenseValue+++
-var modifiedExpenseArr = [];
 
-// +++Function that validates the input value of expenses begins+++
-const calcPercent = (expense, salary) => {
-  const expenseName = expense.name;
-  const newSalary = parseInt(salary.value);
-  const newAmount = parseInt(expense.value);
-  if (newAmount < 0) {
-    alert(`${expenseName.toUpperCase()} CAN'T TAKE A NEGATIVE VALUE`);
-  }
-  if (newAmount > newSalary) {
-    alert(`${expenseName.toUpperCase()} EXPENSE IS GREATER THAN SALARY`);
-  } else {
-    const newObject = {};
-    newObject["name"] = expense.name;
-    newObject["value"] = newAmount;
-    const found = expensePercentArr.findIndex(
-      (obj) => obj["name"] === newObject["name"]
-    );
-    if (found == -1) {
-      expensePercentArr.push(newObject);
-    } else {
-      expensePercentArr[found] = newObject;
+// Event Listeners for each field inputs starts
+monthly_salary.addEventListener("change", load_chart);
+monthly_other.addEventListener("change", load_chart);
+food.addEventListener("change", load_chart);
+clothing.addEventListener("change", load_chart);
+shelter.addEventListener("change", load_chart);
+household.addEventListener("change", load_chart);
+transportation.addEventListener("change", load_chart);
+health.addEventListener("change", load_chart);
+student_loan.addEventListener("change", load_chart);
+personal.addEventListener("change", load_chart);
+miscellaneous.addEventListener("change", load_chart);
+emergency_fund.addEventListener("change", load_chart);
+investments.addEventListener("change", load_chart);
+retirement.addEventListener("change", load_chart);
+
+
+// Solve the error "Uncaught Error: You cannot have multiple Roots on the same DOM node"
+var MyGlobalObject = {};
+var enforce_input = [food, clothing, shelter, household, transportation, health, student_loan, personal, miscellaneous, emergency_fund, investments, retirement];
+function load_chart() {
+  // Enforce user to input in the income input field
+  if (Number(monthly_salary.value) >= 0 && Number(monthly_other.value) > 0 || Number(monthly_salary.value) > 0 && Number(monthly_other.value) >= 0) {
+    for (let i = 0; i < enforce_input.length; i++) {
+      enforce_input[i].disabled = false;
     }
-    loadGraph();
-    counterFunction();
   }
-};
-// +++Function that validates the input value of expenses begins+++
 
-if (modifiedExpenseArr.length === 0) {
-  canvas.style.display = "none";
-}
+  // Enforce user to input value grater than total income
+  for (let i = 0; i < enforce_input.length; i++) {
+    if (enforce_input[i].value >> total_income) {
+      console.log("Greater than total income: ", enforce_input[i].value);
+      alert(enforce_input[i].name + " " + "value is greater than total income value.");
+      enforce_input[i].value = "";
+    }
 
-// +++Function which does the percentage calculation+++
-const loadGraph = () => {
-  modifiedExpenseArr = expensePercentArr.map((expense) => expense.value);
-  var percentOfExpenseArr = modifiedExpenseArr.map((value) =>
-    (percentValue = (value * 100) / salary.value).toFixed(2)
-  );
+  }
+  // Calculate the total for each field input
+  var total_income = Number(monthly_salary.value) + Number(monthly_other.value);
+  console.log("total income: ", total_income);
+  var total_expenses = Number(food.value) + Number(clothing.value) + Number(shelter.value) + Number(household.value) + Number(transportation.value) + Number(health.value) + Number(student_loan.value) + Number(personal.value) + Number(miscellaneous.value);
+  console.log("total expenses: ", total_expenses);
+  var total_savings = Number(emergency_fund.value) + Number(investments.value) + Number(retirement.value);
+  console.log("total savings: ", total_savings);
+  var total_balance = Number(total_income) - (Number(total_expenses) + Number(total_savings));
+  console.log("total balance: ", total_balance);
 
-  // +++PieChart dependency+++
-  canvas.style.display = "block";
-  return new Chart("my-chart", {
-    type: "pie",
-    data: {
-      labels: expenseArr,
-      datasets: [
-        {
-          backgroundColor: expenseColor,
-          data: percentOfExpenseArr,
-        },
-      ],
-    },
-    options: {
-      title: {
-        display: true,
-        text: "Percentage Of Expenses Base On Salary",
-      },
-    },
+  // Solve the error "Uncaught Error: You cannot have multiple Roots on the same DOM node"
+  if (MyGlobalObject[chartdiv]) {
+    MyGlobalObject[chartdiv].dispose()
+  }
+
+  // pie_chart
+  var root = am5.Root.new("chartdiv");
+  root.setThemes([
+    am5themes_Animated.new(root)
+  ]);
+
+  var chart = root.container.children.push(am5percent.PieChart.new(root, {
+    startAngle: 180,
+    endAngle: 360,
+    layout: root.verticalLayout,
+    innerRadius: am5.percent(50)
+  }));
+
+  var series = chart.series.push(am5percent.PieSeries.new(root, {
+    startAngle: 180,
+    endAngle: 360,
+    valueField: "value",
+    categoryField: "category",
+    alignLabels: false
+  }));
+
+  series.states.create("hidden", {
+    startAngle: 180,
+    endAngle: 180
   });
-};
 
-// Monetary goal function (numbers of month) begins
-getMonthBtn.addEventListener("click", () => calcGoalMonths());
-function calcGoalMonths() {
-  //  +++the below function test if number is float+++
-  function isFloat(x) { return !!(x % 1); }
-  // +++   +++
-  const newMonetaryValue = parseInt(monetary.value);
-  const newSavingsValue = parseInt(savings.value);
-  goalMonths = newMonetaryValue / newSavingsValue;
-  if (newMonetaryValue < newSavingsValue) {
-    return alert("Monetary goal less than savings");
-  } else if (Number.isInteger(goalMonths)) {
-    displayMonths.innerHTML = goalMonths;
-    monetaryValueIncrement.innerText = "0.00";
-    return;
-  } else if (isFloat(goalMonths) == true) {
-    var incrementConversion = Math.ceil(
-      (moneyIncrement = (goalMonths - parseInt(goalMonths)) * newSavingsValue)
-    );
-    displayMonths.innerHTML = parseInt(goalMonths);
-    monetaryValueIncrement.innerHTML = incrementConversion;
-    return;
-  } else {
-    console.log(savings.value);
-    displayMonths.innerHTML = "0.00";
-    monetaryValueIncrement.innerText = "0.00";
-    return;
-  }
+  series.slices.template.setAll({
+    cornerRadius: 5
+  });
+
+  series.ticks.template.setAll({
+    forceHidden: true
+  });
+
+  series.data.setAll([
+    { value: total_expenses, category: "Income Spent" },
+    { value: total_savings, category: "Income Saved" },
+    { value: total_balance, category: "Cash Balance" }
+  ]);
+
+  series.appear(1000, 100);
+  // Solve the error "Uncaught Error: You cannot have multiple Roots on the same DOM node"
+  MyGlobalObject[chartdiv] = root;
 }
-
-
-
-
-var root = am5.Root.new("chartdiv");
-root.setThemes([
-  am5themes_Animated.new(root)
-]);
-
-var chart = root.container.children.push(am5percent.PieChart.new(root, {
-  startAngle: 180,
-  endAngle: 360,
-  layout: root.verticalLayout,
-  innerRadius: am5.percent(50)
-}));
-
-var series = chart.series.push(am5percent.PieSeries.new(root, {
-  startAngle: 180,
-  endAngle: 360,
-  valueField: "value",
-  categoryField: "category",
-  alignLabels: false
-}));
-
-series.states.create("hidden", {
-  startAngle: 180,
-  endAngle: 180
-});
-
-series.slices.template.setAll({
-  cornerRadius: 5
-});
-
-series.ticks.template.setAll({
-  forceHidden: true
-});
-
-series.data.setAll([
-  { value: 10, category: "Income Spent" },
-  { value: 9, category: "Income Saved" },
-  { value: 6, category: "Cash Balence" }
-]);
-
-series.appear(1000, 100);

@@ -38,7 +38,7 @@ legend {
 }
 
 .list__img {
-  max-width: 35px;
+  max-width: 38px;
 }
 
 .dollar__sign {
@@ -68,7 +68,15 @@ label {
 .savings-cell {
   padding-block: 1.2rem;
 }
-.income-cell_1, .expenses-cell_1{
+
+.expenses-cell,
+.savings-cell {
+  display: flex;
+}
+
+.income-cell_1,
+.expenses-cell_1,
+.savings-cell_1 {
   display: flex;
   align-items: center;
 }
@@ -128,6 +136,8 @@ label {
   flex-direction: column;
   align-items: center;
 }
-.income-saved, .cash-balance{
+
+.income-saved,
+.cash-balance {
   margin-left: .7rem;
 }
