@@ -72,23 +72,12 @@ function load_chart() {
   var total_balance =
     Number(total_income) - (Number(total_expenses) + Number(total_savings));
 
-
-    income_spent.innerHTML = total_expenses;
-    console.log("total expense: ", total_expenses);
-    income_saved.innerHTML = total_savings;
-    console.log("total saved: ", total_savings);
-    cash_balance.innerHTML = total_balance;
-    console.log("total balance: ", total_balance);
-    
-
-
-
-
-
-
-
-
-
+  income_spent.innerHTML = total_expenses;
+  console.log("total expense: ", total_expenses);
+  income_saved.innerHTML = total_savings;
+  console.log("total saved: ", total_savings);
+  cash_balance.innerHTML = total_balance;
+  console.log("total balance: ", total_balance);
 
   // Enforce user to input in the income input field
   if (
