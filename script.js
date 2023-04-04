@@ -39,6 +39,19 @@ retirement.addEventListener("change", load_chart);
 var MyGlobalObject = {};
 var enforce_input = [food, clothing, shelter, household, transportation, health, student_loan, personal, miscellaneous, emergency_fund, investments, retirement];
 function load_chart() {
+  // Calculate the total for each field input
+  var total_income = Number(monthly_salary.value) + Number(monthly_other.value);
+  // console.log("total income: ", total_income);
+  var total_expenses = Number(food.value) + Number(clothing.value) + Number(shelter.value) + Number(household.value) + Number(transportation.value) + Number(health.value) + Number(student_loan.value) + Number(personal.value) + Number(miscellaneous.value);
+  // console.log("total expenses: ", total_expenses);
+  var total_savings = Number(emergency_fund.value) + Number(investments.value) + Number(retirement.value);
+  // console.log("total savings: ", total_savings);
+  var total_balance = Number(total_income) - (Number(total_expenses) + Number(total_savings));
+  // console.log("total balance: ", total_balance);
+
+
+
+
   // Enforce user to input in the income input field
   if (Number(monthly_salary.value) >= 0 && Number(monthly_other.value) > 0 || Number(monthly_salary.value) > 0 && Number(monthly_other.value) >= 0) {
     for (let i = 0; i < enforce_input.length; i++) {
@@ -48,23 +61,14 @@ function load_chart() {
 
   // Enforce user to input value grater than total income
   for (let i = 0; i < enforce_input.length; i++) {
-    if (enforce_input[i].value >> total_income) {
-      console.log("Greater than total income: ", enforce_input[i].value);
+    console.log("input value: ", enforce_input[i].value);
+    console.log("total income: ", total_income);
+    if (Number(enforce_input[i].value) > Number(total_income)) {
       alert(enforce_input[i].name + " " + "value is greater than total income value.");
       enforce_input[i].value = "";
     }
 
   }
-  // Calculate the total for each field input
-  var total_income = Number(monthly_salary.value) + Number(monthly_other.value);
-  console.log("total income: ", total_income);
-  var total_expenses = Number(food.value) + Number(clothing.value) + Number(shelter.value) + Number(household.value) + Number(transportation.value) + Number(health.value) + Number(student_loan.value) + Number(personal.value) + Number(miscellaneous.value);
-  console.log("total expenses: ", total_expenses);
-  var total_savings = Number(emergency_fund.value) + Number(investments.value) + Number(retirement.value);
-  console.log("total savings: ", total_savings);
-  var total_balance = Number(total_income) - (Number(total_expenses) + Number(total_savings));
-  console.log("total balance: ", total_balance);
-
   // Solve the error "Uncaught Error: You cannot have multiple Roots on the same DOM node"
   if (MyGlobalObject[chartdiv]) {
     MyGlobalObject[chartdiv].dispose()
