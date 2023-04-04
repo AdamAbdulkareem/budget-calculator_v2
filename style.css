@@ -12,8 +12,8 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  /* backdrop-filter: blur(3.2px);
-  -webkit-backdrop-filter: blur(9px); */
+  backdrop-filter: blur(3.2px);
+  -webkit-backdrop-filter: blur(9px);
 }
 
 fieldset {
@@ -50,19 +50,21 @@ label {
   margin-inline-start: 0.5rem;
 }
 
-/* @media screen and (min-width:420px) {
-  .income-grid, .expenses-grid{
+@media screen and (min-width: 420px) {
+  .income-grid,
+  .expenses-grid {
     max-width: 85%;
     margin-inline: auto;
   }
-} */
-/* @media screen and (min-width:600px) {
-    .income-grid, .expenses-grid{
-      max-width: 100%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-} */
+}
+@media screen and (min-width: 600px) {
+  .income-grid,
+  .expenses-grid {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
 .income-cell,
 .expenses-cell,
 .savings-cell {
@@ -90,30 +92,49 @@ label {
   border-radius: 0.2rem;
 }
 
-/* @media screen and (min-width:840px){
-  .body-container{
+@media screen and (min-width: 840px) {
+  .body-container {
     display: grid;
-    grid-template-areas:   "salary  expenses"
-                           "canvas  expenses "
-                           "canvas  expenses "  
-                           "goal   expenses";
+    grid-template-areas:
+      "income monthly-savings ."
+      "monthly-expenses chart-div ."
+      "budget-card .  .";
   }
-  .form-content:nth-of-type(1){
-    grid-area: salary;
+  .form-content:nth-of-type(1), .form-content:nth-of-type(2), .form-content:nth-of-type(3) {
+    max-width: 450px;
+    grid-area: income;
   }
-  .form-content:nth-of-type(2){
-    grid-area: expenses;
-    margin-block-start: 0rem;
+  .form-content:nth-of-type(2) {
+    grid-area: monthly-expenses;
   }
-  
-  .canva-class{
-    grid-area: canvas;
+  .form-content:nth-of-type(3) {
+    grid-area: monthly-savings;
   }
-  .income-grid, .expenses-grid{
+  .budget-review-card{
+    grid-area: budget-card;
+  }
+  .chartdiv{
+    grid-area: chart-div;
+    margin-left: 10rem;
+  }
+  .income-grid,
+  .expenses-grid {
     display: flex;
     flex-direction: column;
   }
-} */
+  #chartdiv {
+    width: 100%;
+    height: 550px;
+    padding-inline: 4rem;
+  }
+  .budget-review-card{
+    display: flex;
+    justify-content: center;
+    margin-top: 0.9rem;
+    margin-left: .5rem;
+  }
+  
+}
 #chartdiv {
   width: 100%;
   height: 550px;
@@ -124,11 +145,17 @@ label {
   flex-direction: row;
   font-size: calc(15px + (24 - 16) * (100vw - 320px) / (1920 - 320));
   font-weight: 700;
-  padding-inline: 1.8rem;
-  padding-block: 2.4rem;
-  background-color: #d5d8dc;
+  padding-inline: 1.2rem;
+  padding-block: 2.2rem;
+  background-color: #d6eaf8;
+  border-radius: 0.5rem;
 }
-
+.budget-review-card .income-spent,
+.income-saved,
+.cash-balance {
+  padding-inline: 0.26rem;
+  background-color: #f2f3f4;
+}
 .income-spent,
 .income-saved,
 .cash-balance {
